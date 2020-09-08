@@ -8,6 +8,14 @@ class Home extends Component {
     heading: 'Home',
   };
 
+  componentDidMount(){
+      this.getProjects();
+  }
+
+  getProjects = () => {
+      this.props.dispatch({ type: 'FETCH_PROJECTS' })
+  }
+
   render() {
     return (
       <div>
