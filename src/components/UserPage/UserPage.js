@@ -5,7 +5,13 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 
 import Home from '../Home/Home.js'
 
+
 class UserPage extends Component {
+
+  handleClick = () => {
+    this.props.history.push('/newProject')
+  }
+
   // this component doesn't do much to start, just renders some user info to the DOM
   render() {
     return (
@@ -13,6 +19,7 @@ class UserPage extends Component {
         <h1 id="welcome">Welcome, {this.props.store.user.username}!</h1>
         <p>Your ID is: {this.props.store.user.id}</p>
         <LogOutButton className="log-in" />
+        <button onClick={this.handleClick}>Add a new Project!</button>
         <Home />
       </div>
     );
