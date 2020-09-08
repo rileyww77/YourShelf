@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import LoginForm from '../LoginForm/LoginForm';
 
+import { withRouter } from 'react-router-dom';
+
 class LoginPage extends Component {
   render() {
     return (
@@ -17,7 +19,7 @@ class LoginPage extends Component {
               this.props.history.push('/registration');
             }}
           >
-            Register
+            New User? Register here!
           </button>
         </center>
       </div>
@@ -25,4 +27,4 @@ class LoginPage extends Component {
   }
 }
 
-export default connect(mapStoreToProps)(LoginPage);
+export default withRouter(connect(mapStoreToProps)(LoginPage));
