@@ -5,7 +5,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   // GET route code here
-  const queryText = 'SELECT * FROM "projects";'
+  const queryText = 'SELECT * FROM "projects" JOIN "user" ON "user".id = "projects".user_id;'
   pool.query(queryText)
   .then((result) => {
       console.log(result.rows);
