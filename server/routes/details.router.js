@@ -10,6 +10,7 @@ router.get('/:p_id', (req, res) => {
     console.log(id)
     const queryText = `
     SELECT * FROM "projects" 
+    JOIN "user" on "user".id = "projects".user_id
     WHERE "projects".p_id = $1;
     `
     pool.query(queryText, [id])
