@@ -21,6 +21,8 @@ import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import NewProject from '../NewProject/NewProject.js'
 import Home from '../Home/Home.js'
+import Details from '../Details/Details.js'
+import Edit from '../Edit/Edit.js'
 
 import './App.css';
 import CreatedProjects from '../CreatedProjects/CreatedProjects';
@@ -37,14 +39,9 @@ class App extends Component {
           <Nav />
           <Switch>
             
-            {/* Visiting localhost:3000/about will show the about page. */}
-            <Route
-              // shows AboutPage at all times (logged in or not)
-              exact
-              path="/about"
-              component={AboutPage}
-            />
-
+            
+            <Route exact path="/details/:id" component={Details}/>
+            <Route exact path="/edit/:id" component={Edit}/>
             <Route exact path="/newProject" component={NewProject} />
             <Route exact path="/" component={LandingPage} />
             <ProtectedRoute exact path="/home" component={Home} />

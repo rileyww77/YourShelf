@@ -5,8 +5,13 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 
 class Details extends Component {
   state = {
-    heading: 'Class Component',
+    heading: 'details',
   };
+
+  componentDidMount(){
+    console.log(this.props.match.params.id)
+    this.props.dispatch({ type: 'FETCH_DETAILS', payload: this.props.match.params.id})
+  }
 
   render() {
     return (
