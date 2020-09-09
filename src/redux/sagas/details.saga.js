@@ -3,7 +3,7 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 function* fetchDetails(action){
     try {
-        let response = yield axios.get(`/api/projects/${action.payload}`);
+        let response = yield axios.get(`/api/details/${action.payload}`);
         console.log(response.data);
         yield put ({ type: 'PUT_DETAILS', payload: response.data})
     } catch (error) {

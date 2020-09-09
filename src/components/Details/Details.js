@@ -9,8 +9,8 @@ class Details extends Component {
   };
 
   componentDidMount(){
-    console.log(this.props.match.params.id)
-    this.props.dispatch({ type: 'FETCH_DETAILS', payload: this.props.match.params.id})
+    console.log(this.props.match.params.p_id)
+    this.props.dispatch({ type: 'FETCH_DETAILS', payload: this.props.match.params.p_id})
   }
 
   render() {

@@ -17,9 +17,9 @@ router.get('/', (req, res) => {
     })
 });
 
-router.get('/:userId', (req, res) => {
+router.get('/:id', (req, res) => {
   //get projects that the user created
-  let id = req.params.userId
+  let id = req.params.id
   console.log(id)
   const queryText = `
     SELECT * FROM "projects"

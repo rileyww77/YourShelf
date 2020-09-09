@@ -39,14 +39,13 @@ function MediaCard(props) {
           </Typography>
           <Typography gutterBottom variant="h5" component="h2">
             {props.project.username}
-            {props.project.user_id}
           </Typography>
           
         </CardContent>
       </CardActionArea>
       <CardActions>
        
-        <Button onClick={() => (console.log(props.project))}size="small" color="primary">
+        <Button onClick={() => {props.history.push(`/details/${props.project.p_id}`)}}size="small" color="primary">
           View Project
         </Button>
         <Button onClick={() => {props.history.push(`/edit/${props.project.id}`)}}size="small" color="primary">
