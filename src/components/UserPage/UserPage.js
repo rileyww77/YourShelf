@@ -20,7 +20,6 @@ class UserPage extends Component {
         <p>Your ID is: {this.props.store.user.id}</p>
         <LogOutButton className="log-in" />
         <button onClick={this.handleClick}>Add a new Project!</button>
-        <Home />
       </div>
     );
   }
