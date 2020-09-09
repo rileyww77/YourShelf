@@ -48,7 +48,7 @@ function MediaCard(props) {
         <Button onClick={() => {props.history.push(`/details/${props.project.p_id}`)}}size="small" color="primary">
           View Project
         </Button>
-        <Button onClick={() => {props.history.push(`/edit/${props.project.id}`)}}size="small" color="primary">
+        <Button onClick={() => {props.history.push(`/edit/${props.project.p_id}`)}}size="small" color="primary">
           Edit
         </Button>
       </CardActions>

@@ -39,7 +39,7 @@ class App extends Component {
             
             
             <Route exact path="/details/:p_id" component={Details}/>
-            <Route exact path="/edit/:id" component={Edit}/>
+            <Route exact path="/edit/:p_id" component={Edit}/>
             <Route exact path="/newProject" component={NewProject} />
             <Route exact path="/" component={LandingPage} />
             <ProtectedRoute exact path="/home" component={Home} />
