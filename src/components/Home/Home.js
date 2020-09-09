@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import ProjectList from '../ProjectList/ProjectList.js'
+import AddProjectButton from '../AddProjectButton/AddProjectButton';
 
 
 class Home extends Component {
@@ -21,6 +22,7 @@ class Home extends Component {
     return (
       <div>
         <h2>{this.state.heading}</h2>
+        <AddProjectButton />
         {this.props.store.projects.map((project) => {
             return (
                 <div key={project.name}>

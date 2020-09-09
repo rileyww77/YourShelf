@@ -23,6 +23,7 @@ import NewProject from '../NewProject/NewProject.js'
 import Home from '../Home/Home.js'
 
 import './App.css';
+import CreatedProjects from '../CreatedProjects/CreatedProjects';
 
 class App extends Component {
   componentDidMount() {
@@ -63,7 +64,7 @@ class App extends Component {
               // logged in shows InfoPage else shows LoginPage
               exact
               path="/userProject"
-              component={UserShelf}
+              component={CreatedProjects}
             />
 
             {/* When a value is supplied for the authRedirect prop the user will

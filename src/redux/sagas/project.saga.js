@@ -12,6 +12,16 @@ function* fetchProjects(){
     }
 }
 
+function* fetchUserProjects(action){
+    try {
+        let response = yield axios.get(`/api/projects/${action.payload}`);
+        console.log(response.data);
+        yield put ({ type: 'PUT_USER_PROJECTS', payload: response.data})
+    } catch (error) {
+        console.log('error setting project (index)', error)
+    }
+}
+
 //adding a new project
 function* postProject(action){
     try {
@@ -26,6 +36,7 @@ function* postProject(action){
 function* projectSaga() {
     yield takeEvery('FETCH_PROJECTS', fetchProjects);
     yield takeEvery('POST_PROJECT', postProject);
+    yield takeEvery('FETCH_USER_PROJECTS', fetchUserProjects)
   }
   
   export default projectSaga;
