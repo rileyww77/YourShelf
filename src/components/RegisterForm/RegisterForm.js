@@ -20,6 +20,7 @@ class RegisterForm extends Component {
         password: this.state.password,
       },
     });
+    // eslint-disable-next-line
     {this.props.history.push('/login')};
   }; // end registerUser
 

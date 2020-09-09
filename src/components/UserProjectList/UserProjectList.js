@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -39,13 +39,14 @@ function MediaCard(props) {
           </Typography>
           <Typography gutterBottom variant="h5" component="h2">
             {props.project.username}
+            {props.project.user_id}
           </Typography>
           
         </CardContent>
       </CardActionArea>
       <CardActions>
        
-        <Button onClick={() => {props.history.push(`/details/${props.project.id}`)}}size="small" color="primary">
+        <Button onClick={() => (console.log(props.project))}size="small" color="primary">
           View Project
         </Button>
         <Button onClick={() => {props.history.push(`/edit/${props.project.id}`)}}size="small" color="primary">

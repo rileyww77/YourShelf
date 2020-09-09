@@ -17,8 +17,9 @@ router.get('/', (req, res) => {
     })
 });
 
-router.get('/:id', (req, res) => {
-  let id = req.params.id
+router.get('/:userId', (req, res) => {
+  //get projects that the user created
+  let id = req.params.userId
   console.log(id)
   const queryText = `
     SELECT * FROM "projects"
@@ -32,6 +33,25 @@ router.get('/:id', (req, res) => {
     })
     .catch((error) => {
       console.log(`Error on user project get query ${error}`);
+      res.sendStatus(500);
+    });
+});
+
+//get details for one project
+router.get('/:id', (req, res) => {
+  let id = req.params.id
+  console.log(id)
+  const queryText = `
+  SELECT * FROM "projects" 
+  WHERE "projects".p_id = $1;
+  `
+  pool.query(queryText, [id])
+    .then((result) => {
+      console.log(result.rows)
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log(`Error on detail get query ${error}`);
       res.sendStatus(500);
     });
 });

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {
   HashRouter as Router,
   Route,
-  Redirect,
+  // Redirect,
   Switch,
 } from 'react-router-dom';
 
@@ -13,9 +13,7 @@ import Footer from '../Footer/Footer';
 
 import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
-import AboutPage from '../AboutPage/AboutPage';
 import UserPage from '../UserPage/UserPage';
-import UserShelf from '../UserShelf/UserShelf';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
