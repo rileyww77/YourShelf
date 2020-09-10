@@ -42,6 +42,7 @@ class NewProject extends Component {
   handleSubmit = () => {
     console.log('clicked')
     this.props.dispatch({ type: 'POST_PROJECT', payload: this.state})
+    this.props.history.push('/userProject')
   }
 
 
