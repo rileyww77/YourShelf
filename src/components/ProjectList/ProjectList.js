@@ -42,7 +42,7 @@ function MediaCard(props) {
       </CardActionArea>
       <CardActions>
        
-        <Button onClick={() => {props.history.push('/details')}}size="small" color="primary">
+        <Button onClick={() => {props.history.push(`/details/${props.project.p_id}`)}}size="small" color="primary">
           View Project
         </Button>
       </CardActions>
