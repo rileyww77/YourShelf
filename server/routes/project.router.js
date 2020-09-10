@@ -63,14 +63,25 @@ router.post('/', (req, res) => {
   console.log(project)
   const queryText = `INSERT INTO "projects" ("user_id", "name", "image", "supplies", "description")
   VALUES ($1, $2, $3, $4, $5)`
-  pool.query(queryText, 
+  pool.query(queryText,
     [project.user_id, project.name, project.image, project.supplies, project.description])
     .then((result) => {
-    res.sendStatus(201);
-  }) .catch((error) => {
-    res.sendStatus(500)
-    console.log('error posting new project(router)', error)
-  })
+      res.sendStatus(201);
+    }).catch((error) => {
+      res.sendStatus(500)
+      console.log('error posting new project(router)', error)
+    })
 });
+
+router.delete('/:id', (req, res) => {
+  pool.query(`DELETE FROM "projects" 
+              WHERE p_id=$1`, [req.params.id])
+    .then((result) => {
+      res.sendStatus(200);
+    }).catch((error) => {
+      console.log('error deleting project (router)', error)
+      res.sendStatus(500)
+    })
+})
 
 module.exports = router;

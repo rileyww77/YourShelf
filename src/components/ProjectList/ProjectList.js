@@ -2,10 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { withRouter } from 'react-router-dom';
 
@@ -24,7 +22,7 @@ function MediaCard(props) {
 
   return (
     <Card className={classes.root}>
-      <CardActionArea>
+      <CardActionArea onClick={() => { props.history.push(`/details/${props.project.p_id}`) }}>
         <CardMedia
           className={classes.media}
           image={props.project.image}
@@ -37,15 +35,8 @@ function MediaCard(props) {
           <Typography gutterBottom variant="h5" component="h2">
             {props.project.username}
           </Typography>
-          
         </CardContent>
       </CardActionArea>
-      <CardActions>
-       
-        <Button onClick={() => {props.history.push(`/details/${props.project.p_id}`)}}size="small" color="primary">
-          View Project
-        </Button>
-      </CardActions>
     </Card>
   );
 }
