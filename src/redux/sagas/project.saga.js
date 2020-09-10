@@ -12,6 +12,7 @@ function* fetchProjects(){
     }
 }
 
+//get just the projects the user has created
 function* fetchUserProjects(action){
     try {
         let response = yield axios.get(`/api/projects/${action.payload}`);
@@ -32,11 +33,23 @@ function* postProject(action){
     }
 }
 
+//delete a project
+function* deleteProject(action){
+    try {
+        let response = yield axios.delete(`/api/projects/${action.payload}`);
+        console.log(response.data);
+        yield put({type: 'FETCH_USER_PROJECTS', payload: action.payload })
+    } catch (error) {
+        console.log('error deleting single project (index)', error)
+    }
+}
+
 
 function* projectSaga() {
     yield takeEvery('FETCH_PROJECTS', fetchProjects);
     yield takeEvery('POST_PROJECT', postProject);
-    yield takeEvery('FETCH_USER_PROJECTS', fetchUserProjects)
+    yield takeEvery('FETCH_USER_PROJECTS', fetchUserProjects);
+    yield takeEvery('DELETE_PROJECT', deleteProject)
   }
   
   export default projectSaga;
