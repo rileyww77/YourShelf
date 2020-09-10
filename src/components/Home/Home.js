@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-import ProjectList from '../ProjectList/ProjectList.js'
+import ProjectList from '../ProjectList/ProjectList.js';
+import UserPage from '../UserPage/UserPage.js'
 
 
 class Home extends Component {
-  state = {
-    heading: 'Home',
-  };
+  
 
   componentDidMount() {
     this.getProjects();
@@ -20,7 +19,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <h2>{this.state.heading}</h2>
+        <UserPage />
         {this.props.store.projects.map((project) => {
           return (
             <div key={project.name}>
