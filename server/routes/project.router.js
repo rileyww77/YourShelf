@@ -73,6 +73,7 @@ router.post('/', (req, res) => {
     })
 });
 
+//delete a project
 router.delete('/:id', (req, res) => {
   pool.query(`DELETE FROM "projects" 
               WHERE p_id=$1`, [req.params.id])

@@ -9,12 +9,12 @@ class Home extends Component {
     heading: 'Home',
   };
 
-  componentDidMount(){
-      this.getProjects();
+  componentDidMount() {
+    this.getProjects();
   }
 
   getProjects = () => {
-      this.props.dispatch({ type: 'FETCH_PROJECTS' })
+    this.props.dispatch({ type: 'FETCH_PROJECTS' })
   }
 
   render() {
@@ -22,11 +22,11 @@ class Home extends Component {
       <div>
         <h2>{this.state.heading}</h2>
         {this.props.store.projects.map((project) => {
-            return (
-                <div key={project.name}>
-                    <ProjectList project={project} />
-                </div>
-            )
+          return (
+            <div key={project.name}>
+              <ProjectList project={project} />
+            </div>
+          )
         })}
       </div>
     );

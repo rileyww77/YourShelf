@@ -19,7 +19,7 @@ function* fetchUserProjects(action){
         console.log(response.data);
         yield put ({ type: 'PUT_USER_PROJECTS', payload: response.data})
     } catch (error) {
-        console.log('error setting project (index)', error)
+        console.log('error setting user projects (index)', error)
     }
 }
 
