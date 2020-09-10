@@ -22,10 +22,22 @@ function* fetchFavorites(action){
     }
 }
 
+//delete a favorite
+function* deleteFavorite(action){
+    try {
+        let response = yield axios.delete(`/api/favorites/${action.payload}`);
+        console.log(response.data);
+        yield put({type: '', payload: action.payload })
+    } catch (error) {
+        console.log('error deleting favorite (index)', error)
+    }
+}
+
 
 function* favoriteSaga() {
   yield takeEvery('ADD_FAVORITE', addFavorite)
   yield takeEvery('FETCH_FAVORITES', fetchFavorites)
+  yield takeEvery('DELETE_FAVORITE', deleteFavorite)
 }
 
 export default favoriteSaga;

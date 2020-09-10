@@ -24,7 +24,7 @@ router.get('/:id', (req, res) => {
         });
 });
 
-
+//add a new favorite
 router.post('/', (req, res) => {
     // POST route code here
     let project = req.body
@@ -39,5 +39,17 @@ router.post('/', (req, res) => {
             console.log('error posting new project(router)', error)
         })
 });
+
+//delete a favorite
+router.delete('/:id', (req, res) => {
+    pool.query(`DELETE FROM "favorites" 
+                WHERE fav_id=$1`, [req.params.id])
+      .then((result) => {
+        res.sendStatus(200);
+      }).catch((error) => {
+        console.log('error deleting favorite (router)', error)
+        res.sendStatus(500)
+      })
+  })
 
 module.exports = router;

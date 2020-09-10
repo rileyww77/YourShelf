@@ -20,9 +20,9 @@ class UserShelf extends Component {
     return (
       <div>
         <UserPage />
-        {this.props.store.favorite.map((project) => {
+        {this.props.store.favorite.map((project, i) => {
           return (
-            <div key={project.name}>
+            <div key={i}>
               <UserShelfItem project={project} />
             </div>
           )

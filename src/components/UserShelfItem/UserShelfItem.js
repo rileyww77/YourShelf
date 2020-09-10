@@ -5,10 +5,13 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import AlertButton from '../AlertButton/AlertButton.js'
+import FavoriteAlert from '../FavoriteAlert/FavoriteAlert.js';
+
 import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux';
+import mapStoreToProps from '../../redux/mapStoreToProps';
+
 
 
 const useStyles = makeStyles({
@@ -24,6 +27,7 @@ const useStyles = makeStyles({
 
 function MediaCard(props) {
     const classes = useStyles();
+
 
 
     return (
@@ -44,13 +48,10 @@ function MediaCard(props) {
                 </CardContent>
             </CardActionArea>
             <CardActions>
-                <Button onClick={() => { props.history.push(`/edit/${props.project.p_id}`) }} size="small" color="primary">
-                    Edit
-        </Button>
-                <AlertButton projectId={props.project.p_id}/>
+                <FavoriteAlert favoriteId={props.project.fav_id} />
             </CardActions>
         </Card>
     );
 }
 
-export default withRouter(MediaCard);
+export default withRouter(connect(mapStoreToProps)(MediaCard))
