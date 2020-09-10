@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { put, takeLatest } from 'redux-saga/effects';
+import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 
 function* fetchDetails(action){
     try {
@@ -11,8 +11,20 @@ function* fetchDetails(action){
     }
 }
 
+function* putUpdates(action){
+    try{
+        console.log(action.payload)
+        let response= yield axios.put(`/api/details`, action.payload)
+        console.log(response.data)
+        
+    } catch (error) {
+        console.log('error setting updates in index', error)
+    }
+}
+
 function* detailSaga() {
   yield takeLatest('FETCH_DETAILS', fetchDetails);
+  yield takeEvery('PUT_UPDATES', putUpdates);
 }
 
 export default detailSaga;

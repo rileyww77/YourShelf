@@ -26,8 +26,23 @@ router.get('/:p_id', (req, res) => {
 
 
 
-router.post('/', (req, res) => {
-  // POST route code here
+router.put('/', (req, res) => {
+  let updates = req.body
+  console.log(updates)
+  const updateQuery= `UPDATE "projects" 
+  SET "name" = $1,
+  "image" = $2,
+  "supplies" = $3,
+  "description" = $4
+  WHERE p_id=$5
+  `
+  pool.query(updateQuery, [updates.name, updates.image, updates.supplies, updates.description, updates.p_id])
+  .then ((result) => {
+      res.sendStatus(200)
+  }) .catch((error) => {
+    console.log(`Error on updates post query ${error}`);
+    res.sendStatus(500);
+  });
 });
 
 module.exports = router;

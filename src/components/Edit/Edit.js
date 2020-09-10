@@ -4,9 +4,46 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 
 
 class Edit extends Component {
+    
     state = {
-        heading: 'edit',
-    };
+        user_id: '',
+        name: '',
+        image: '',
+        supplies: '',
+        description: '',
+        p_id: this.props.match.params.p_id
+      };
+    
+      handleNameChange = (event) => {
+        this.setState({
+          //send along the user id as well to know who created the project
+          user_id: this.props.store.user.id,
+          name: event.target.value
+        })
+      }
+    
+      handleImageChange = (event) => {
+        this.setState({
+          image: event.target.value
+        })
+      }
+    
+      handleSupplyChange = (event) => {
+        this.setState({
+          supplies: event.target.value
+        })
+      }
+    
+      handleStepChange = (event) => {
+        this.setState({
+          description: event.target.value
+        })
+      }
+    
+      handleSubmit = () => {
+        console.log('clicked')
+        this.props.dispatch({ type: 'PUT_UPDATES', payload: this.state})
+      }
 
     componentDidMount() {
         console.log(this.props.match.params.p_id)
@@ -16,7 +53,7 @@ class Edit extends Component {
     render() {
         return (
             <div>
-                <h2>{this.state.heading}</h2>
+                <h2>Edit</h2>
                 {this.props.store.projectDetails.map((project) => {
                     return (
                         <>
