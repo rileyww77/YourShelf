@@ -12,6 +12,8 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
+import '../card.css';
+
 
 const useStyles = makeStyles({
   root: {
@@ -20,6 +22,7 @@ const useStyles = makeStyles({
   media: {
     height: 140,
   },
+  
 });
 
 function MediaCard(props) {
@@ -31,33 +34,35 @@ function MediaCard(props) {
   }
 
   const handleClick = () => {
-    props.dispatch({ type: 'ADD_FAVORITE', payload: favedProject})
+    props.dispatch({ type: 'ADD_FAVORITE', payload: favedProject })
   }
 
   return (
-    <Card className={classes.root}>
-      <CardActionArea onClick={() => {props.history.push(`/details/${props.project.p_id}`)}}>
-        <CardMedia
-          className={classes.media}
-          image={props.project.image}
-          title={props.project.image}
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {props.project.name}
-          </Typography>
-          <Typography gutterBottom variant="h5" component="h2">
-            {props.project.username}
-          </Typography>
-          
-        </CardContent>
-      </CardActionArea>
-      <CardActions>
-       <IconButton onClick={handleClick}>
-        <FavoriteBorderIcon />
-        </IconButton>
-      </CardActions>
-    </Card>
+    <div >
+      <Card >
+        <CardActionArea onClick={() => { props.history.push(`/details/${props.project.p_id}`) }}>
+          <CardMedia
+            className={classes.media}
+            image={props.project.image}
+            title={props.project.image}
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h5" component="h2">
+              {props.project.name}
+            </Typography>
+            <Typography gutterBottom variant="h5" component="h2">
+              {props.project.username}
+            </Typography>
+
+          </CardContent>
+        </CardActionArea>
+        <CardActions>
+          <IconButton onClick={handleClick}>
+            <FavoriteBorderIcon />
+          </IconButton>
+        </CardActions>
+      </Card>
+    </div>
   );
 }
 

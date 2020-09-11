@@ -6,11 +6,13 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import FavoriteAlert from '../FavoriteAlert/FavoriteAlert.js';
 
+import FavoriteAlert from '../FavoriteAlert/FavoriteAlert.js';
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+
+import '../card.css'
 
 
 
@@ -31,6 +33,7 @@ function MediaCard(props) {
 
 
     return (
+        <div>
         <Card className={classes.root}>
             <CardActionArea onClick={() => { props.history.push(`/details/${props.project.p_id}`) }}>
                 <CardMedia
@@ -51,6 +54,7 @@ function MediaCard(props) {
                 <FavoriteAlert favoriteId={props.project.fav_id} />
             </CardActions>
         </Card>
+        </div>
     );
 }
 
