@@ -25,13 +25,35 @@ import Edit from '../Edit/Edit.js'
 import './App.css';
 import CreatedProjects from '../CreatedProjects/CreatedProjects';
 
+import { createMuiTheme } from '@material-ui/core/styles';
+
 class App extends Component {
+
+
+
   componentDidMount() {
     this.props.dispatch({ type: 'FETCH_USER' });
   }
 
   render() {
+    const theme = createMuiTheme({
+      palette: {
+        primary: {
+          light: '#757ce8',
+          main: '#3f50b5',
+          dark: '#002884',
+          contrastText: '#fff',
+        },
+        secondary: {
+          light: '#ff7961',
+          main: '#f44336',
+          dark: '#ba000d',
+          contrastText: '#000',
+        },
+      },
+    });
     return (
+      <theme>
       <Router>
         <div>
           <Nav />
@@ -91,6 +113,7 @@ class App extends Component {
           <Footer />
         </div>
       </Router>
+      </theme>
     );
   }
 }

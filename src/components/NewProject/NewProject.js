@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import './NewProject.css'
 
 
 
@@ -48,28 +49,28 @@ class NewProject extends Component {
 
   render() {
     return (
-      <>
+      <div className="center">
         <div>
           <h2>Add a new Project!</h2>
         </div>
         Project Name:
         <br />
-        <input placeholder="project name" onChange={this.handleNameChange}></input>
+        <input placeholder="Project Name" onChange={this.handleNameChange} className="change"></input>
         <br />
         Image URL (show the world your finished product!):
         < br />
-        <input placeholder="image URL" onChange={this.handleImageChange}></input>
+        <input placeholder="Image URL" onChange={this.handleImageChange}></input>
         <br />
         Supplies Needed:
         <br />
-        <textarea placeholder="supplies" onChange={this.handleSupplyChange}></textarea>
+        <textarea placeholder="Supplies" onChange={this.handleSupplyChange}></textarea>
         <br />
         Steps:
         <br />
-        <textarea placeholder="steps" onChange={this.handleStepChange}></textarea>
+        <textarea placeholder="Steps" onChange={this.handleStepChange}></textarea>
         <br />
         <button onClick={this.handleSubmit}>Submit</button>
-      </>
+      </ div>
     );
   }
 }

@@ -1,21 +1,36 @@
 .nav-title {
-    font-size: 24px;
+    font-size: 40px;
     font-weight: 700;
     display: inline-block;
-    color: #f2f2f2;
+    color: black;
     padding-left: 10px;
+    margin-left: 620px;
+    margin-bottom: 50px;
+    margin-top: 50px
+}
+
+.divider{
+  background-color: #8d9ca5;
+  margin-bottom: 15px;
+  padding: 2.5px;
+  margin-top:15px
+}
+
+.menu{
+  margin-top: 15px;
+  margin-right: 10px
 }
 
 .nav {
   margin: 0 0 30px;
-  background-color: #00acb0;
+  background-color: #cad5c9;
   overflow: hidden;
 }
 
 .nav-link {
   float: left;
   color: #f2f2f2;
-  background-color: #00acb0;
+  background-color: #cad5c9;
   text-align: center;
   padding: 24px 10px;
   text-decoration: none;

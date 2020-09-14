@@ -24,8 +24,18 @@ function* fetchUser() {
   }
 }
 
+function* getUser(action){
+  try {
+    const response = yield axios.get('/api/user', action.payload);
+    yield put ({ type: 'SET_SINGLE_USER', payload: response.data })
+  } catch (error) {
+    console.log('Single user get request failed (saga)', error);
+  }
+}
+
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
+  yield takeLatest('GET_USER', getUser);
 }
 
 export default userSaga;

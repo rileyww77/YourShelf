@@ -30,7 +30,11 @@ const useStyles = makeStyles({
 function MediaCard(props) {
     const classes = useStyles();
 
+    const getUser = () => {
+        props.dispatch ({ type: 'GET_USER', payload: props.project.user_id })
+    }
 
+    getUser();
 
     return (
         <div>
@@ -46,7 +50,7 @@ function MediaCard(props) {
                         {props.project.name}
                     </Typography>
                     <Typography gutterBottom variant="h5" component="h2">
-                        {props.project.username}
+                        {props.store.username}
                     </Typography>
                 </CardContent>
             </CardActionArea>

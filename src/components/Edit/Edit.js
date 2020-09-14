@@ -47,14 +47,14 @@ class Edit extends Component {
 
     componentDidMount() {
         console.log(this.props.match.params.p_id)
-        this.props.dispatch({ type: 'FETCH_DETAILS', payload: this.props.match.params.p_id })
+        this.props.dispatch({ type: 'FETCH_EDITS', payload: this.props.match.params.p_id })
     }
 
     render() {
         return (
             <div>
                 <h2>Edit</h2>
-                {this.props.store.projectDetails.map((project) => {
+                {this.props.store.edit.map((project) => {
                     return (
                         <>
                             Project Name:

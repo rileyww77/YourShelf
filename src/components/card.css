@@ -1,11 +1,28 @@
 .card{
     display: flex;
-    align-content: center;
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap
 }
 
 .cardItems{
     margin: 10px;
-    padding: 10px
+    padding: 10px;
+    width: 345px;
+    max-height: 345px;
+    
+}
+
+.divider{
+    background-color: #8d9ca5;
+    margin-bottom: 15px;
+    padding: 2.5px
+}
+
+.user{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.title{
+    font-family: 'Gayathri', sans-serif;
 }

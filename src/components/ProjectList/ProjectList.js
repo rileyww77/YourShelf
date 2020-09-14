@@ -11,6 +11,8 @@ import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import Divider from '@material-ui/core/Divider';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 import '../card.css';
 
@@ -37,7 +39,14 @@ function MediaCard(props) {
     props.dispatch({ type: 'ADD_FAVORITE', payload: favedProject })
   }
 
+const theme = createMuiTheme({
+  typography: {
+    fontFamily: 'Gayathri, sans-serif',
+  }
+})
+
   return (
+    // <ThemeProvider theme={theme}>
     <div >
       <Card >
         <CardActionArea onClick={() => { props.history.push(`/details/${props.project.p_id}`) }}>
@@ -46,14 +55,14 @@ function MediaCard(props) {
             image={props.project.image}
             title={props.project.image}
           />
+          <Divider className="divider"></Divider>
           <CardContent>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom variant="h5" component="h2" className="title">
               {props.project.name}
             </Typography>
-            <Typography gutterBottom variant="h5" component="h2">
+            <Typography gutterBottom variant="h5" component="h2" className="user">
               {props.project.username}
             </Typography>
-
           </CardContent>
         </CardActionArea>
         <CardActions>
@@ -63,6 +72,7 @@ function MediaCard(props) {
         </CardActions>
       </Card>
     </div>
+    // </ThemeProvider>
   );
 }
 

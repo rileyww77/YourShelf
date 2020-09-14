@@ -2,9 +2,10 @@ import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
 import projects from './projects.reducer';
-import userProjects from './userProject.reducer'
-import projectDetails from './details.reducer'
-import favorite from './favorite.reducer'
+import userProjects from './userProject.reducer';
+import projectDetails from './details.reducer';
+import favorite from './favorite.reducer';
+import edit from './edit.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
   projects,
   userProjects,
   projectDetails,
-  favorite
+  favorite,
+  edit
 });
 
 export default rootReducer;

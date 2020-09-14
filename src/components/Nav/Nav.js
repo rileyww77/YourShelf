@@ -1,9 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import LogOutButton from '../LogOutButton/LogOutButton';
 import './Nav.css';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import Menu from './Menu.js'
 
 const Nav = (props) => {
   let loginLinkData = {
@@ -17,34 +17,27 @@ const Nav = (props) => {
   }
 
   return (
+    <>
     <div className="nav">
+    {props.store.user.id && (
+          <p>{props.store.user.username}</p>
+        )}
       <Link to="/home">
         <h2 className="nav-title">YourShelf</h2>
       </Link>
       <div className="nav-right">
-        <Link className="nav-link" to={loginLinkData.path}>
-          {/* Show this link if they are logged in or not,
-          but call this link 'Home' if they are logged in,
-          and call this link 'Login / Register' if they are not */}
-          {loginLinkData.text}
-        </Link>
+
         {/* Show the link to the info page and the logout button if the user is logged in */}
         {props.store.user.id && (
-          <>
-            <Link className="nav-link" to="/user">
-              My Shelves
-            </Link>
-            <Link className="nav-link" to="/userProject">
-              My Projects
-            </Link>
-            <LogOutButton className="nav-link" />
-          </>
-
+          <div className="menu">
+            <Menu></Menu>
+          </div>
         )}
-        {/* Always show this link since the about page is not protected */}
-
       </div>
+      <div className="divider"></div>
     </div>
+    
+    </>
   );
 };
 

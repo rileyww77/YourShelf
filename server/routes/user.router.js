@@ -44,4 +44,23 @@ router.post('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
+//get user for one project
+router.get('/', (req, res) => {
+  let id = req.body
+  console.log('single', id)
+  const queryText = `
+  SELECT * FROM "user" 
+  WHERE "user".id = $1;
+  `
+  pool.query(queryText, [id])
+    .then((result) => {
+      console.log('these are', result.rows)
+      res.send(result.rows);
+    })
+    .catch((error) => {
+      console.log(`Error on detail get query ${error}`);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;
