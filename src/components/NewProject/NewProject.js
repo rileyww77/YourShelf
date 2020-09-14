@@ -59,15 +59,15 @@ class NewProject extends Component {
         <br />
         Image URL (show the world your finished product!):
         < br />
-        <input placeholder="Image URL" onChange={this.handleImageChange}></input>
+        <input placeholder="Image URL" onChange={this.handleImageChange} className="change"></input>
         <br />
         Supplies Needed:
         <br />
-        <textarea placeholder="Supplies" onChange={this.handleSupplyChange}></textarea>
+        <textarea placeholder="Supplies" onChange={this.handleSupplyChange} className="change"></textarea>
         <br />
         Steps:
         <br />
-        <textarea placeholder="Steps" onChange={this.handleStepChange}></textarea>
+        <textarea placeholder="Steps" onChange={this.handleStepChange} className="change"></textarea>
         <br />
         <button onClick={this.handleSubmit}>Submit</button>
       </ div>

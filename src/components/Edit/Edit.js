@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 
+import './Edit.css'
+
 
 class Edit extends Component {
 
@@ -37,22 +39,22 @@ class Edit extends Component {
     return (
       <>
         <h2>Edit</h2>
-        <div>
+        <div className="center">
           Project Name:
             <br />
-          <input value={this.props.store.edit.name} onChange={this.handleNameChange}></input>
+          <input value={this.props.store.edit.name} onChange={this.handleNameChange} className="change"></input>
             <br />
               Image URL (show the world your finished product!):
             < br />
-          <input value={this.props.store.edit.image} onChange={this.handleImageChange}></input>
+          <input value={this.props.store.edit.image} onChange={this.handleImageChange} className="change"></input>
             <br />
               Supplies Needed:
             <br />
-          <textarea value={this.props.store.edit.supplies} onChange={this.handleSupplyChange}></textarea>
+          <textarea value={this.props.store.edit.supplies} onChange={this.handleSupplyChange} className="change"></textarea>
             <br />
               Steps:
             <br />
-          <textarea value={this.props.store.edit.description} onChange={this.handleStepChange}></textarea>
+          <textarea value={this.props.store.edit.description} onChange={this.handleStepChange} className="change"></textarea>
             <br />
           <button onClick={this.handleSubmit}>Submit</button>
         </div>

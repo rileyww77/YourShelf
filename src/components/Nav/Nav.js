@@ -17,28 +17,28 @@ const Nav = (props) => {
   }
 
   return (
-    <>
     <div className="nav">
-    {props.store.user.id && (
-          <p>{props.store.user.username}</p>
-        )}
-      <Link to="/home">
-        <h2 className="nav-title">YourShelf</h2>
-      </Link>
+      {/* Show the link to the info page and the logout button if the user is logged in */}
+      {props.store.user.id && (
+        <div className="userName">
+          <p>Hello, {props.store.user.username}!</p>
+          <Menu></Menu>
+        </ div>
+      )}
+      <div className="center">
+        <Link to="/home">
+          <img src='/images/DIYS-trans.png' alt='YourShelf Logo' className="logo"></img>
+        </Link>
+        <h5 className="inline">Design it: Yourshelf </h5>
+        <h5 className="inline">Decorate it: YourShelf </h5>
+        <h5 className="inline">Do it: YourShelf </h5>
+      </ div>
       <div className="nav-right">
-
-        {/* Show the link to the info page and the logout button if the user is logged in */}
-        {props.store.user.id && (
-          <div className="menu">
-            <Menu></Menu>
-          </div>
-        )}
       </div>
       <div className="divider"></div>
     </div>
-    
-    </>
   );
 };
+
 
 export default connect(mapStoreToProps)(Nav);

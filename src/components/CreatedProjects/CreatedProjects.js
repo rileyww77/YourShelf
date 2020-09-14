@@ -23,12 +23,11 @@ class CreatedProjects extends Component {
   render() {
     return (
       <div>
-        <h2>{this.state.heading}</h2>
         <AddProjectButton />
         <div className="card">
         {this.props.store.userProjects.map((project) => {
             return (
-                <div key={project.name}>
+                <div key={project.name} className="cardItems">
                     <UserProjectList project={project} />
                 </div>
             )

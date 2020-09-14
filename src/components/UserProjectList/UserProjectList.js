@@ -7,8 +7,9 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import AlertButton from '../AlertButton/AlertButton.js'
-import { withRouter } from 'react-router-dom'
+import AlertButton from '../AlertButton/AlertButton.js';
+import Divider from '@material-ui/core/Divider';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -36,6 +37,7 @@ function MediaCard(props) {
                     image={props.project.image}
                     title={props.project.image}
                 />
+                <Divider className="divider"></Divider>
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
                         {props.project.name}
