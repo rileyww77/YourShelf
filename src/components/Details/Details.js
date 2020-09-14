@@ -15,15 +15,16 @@ class Details extends Component {
 
   render() {
     return (
-      <div>
-        <h2>{this.state.heading}</h2>
+      <div className="center">
         {this.props.store.projectDetails.map((project) => {
           return (
             <>
-              <p key={project.name}>{project.name}</p>
-              <p>{project.username}</p>
+              <h2 key={project.name}>{project.name}</h2>
+              <h4>{project.username}</h4>
               <img src={project.image} alt={project.name}></img>
+              <h3>Supplies:</h3>
               <p>{project.supplies}</p>
+                <h3>Steps: </h3>
               <p>{project.description}</p>
             </>
           )
