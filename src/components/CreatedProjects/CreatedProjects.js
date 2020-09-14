@@ -4,6 +4,8 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import AddProjectButton from '../AddProjectButton/AddProjectButton';
 import UserProjectList from '../UserProjectList/UserProjectList'
 
+import '../card.css'
+
 
 class CreatedProjects extends Component {
   state = {
@@ -23,7 +25,7 @@ class CreatedProjects extends Component {
       <div>
         <h2>{this.state.heading}</h2>
         <AddProjectButton />
-
+        <div className="card">
         {this.props.store.userProjects.map((project) => {
             return (
                 <div key={project.name}>
@@ -31,6 +33,7 @@ class CreatedProjects extends Component {
                 </div>
             )
         })}
+        </div>
       </div>
     );
   }

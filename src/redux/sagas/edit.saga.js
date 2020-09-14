@@ -1,11 +1,11 @@
 import axios from 'axios';
 import { put, takeLatest, takeEvery } from 'redux-saga/effects';
 
-function* fetchDetails(action){
+function* fetchEdits(action){
     try {
         let response = yield axios.get(`/api/details/${action.payload}`);
         console.log(response.data);
-        yield put ({ type: 'PUT_EDITS', payload: response.data})
+        yield put ({ type: 'PUT_EDITS', payload: response.data[0]})
     } catch (error) {
         console.log('error setting single project (index)', error)
     }
@@ -23,7 +23,7 @@ function* putUpdates(action){
 }
 
 function* editSaga() {
-  yield takeLatest('FETCH_EDITS', fetchDetails);
+  yield takeLatest('FETCH_EDITS', fetchEdits);
   yield takeEvery('PUT_UPDATES', putUpdates);
 }
 
