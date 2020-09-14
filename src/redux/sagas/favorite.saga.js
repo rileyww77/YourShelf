@@ -27,7 +27,8 @@ function* deleteFavorite(action){
     try {
         let response = yield axios.delete(`/api/favorites/${action.payload}`);
         console.log(response.data);
-        yield put({type: '', payload: action.payload })
+        yield put({type: 'FETCH_FAVORITES', payload: action.payload })
+        fetchFavorites();
     } catch (error) {
         console.log('error deleting favorite (index)', error)
     }
