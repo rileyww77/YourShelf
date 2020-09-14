@@ -15,7 +15,7 @@ function* fetchProjects(){
 //get just the projects the user has created
 function* fetchUserProjects(action){
     try {
-        let response = yield axios.get(`/api/projects/${action.payload}`);
+        let response = yield axios.get(`/api/projects/myProjects`);
         console.log(response.data);
         yield put ({ type: 'PUT_USER_PROJECTS', payload: response.data})
     } catch (error) {

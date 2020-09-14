@@ -1,9 +1,12 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
   // GET all projects with username of who created the project
   const queryText = 'SELECT * FROM "projects" JOIN "user" ON "user".id = "projects".user_id;'
   pool.query(queryText)
@@ -17,16 +20,14 @@ router.get('/', (req, res) => {
     })
 });
 
-router.get('/:id', (req, res) => {
+router.get('/myProjects', rejectUnauthenticated, (req, res) => {
   //get projects that the user created
-  let id = req.params.id
-  console.log(id)
   const queryText = `
     SELECT * FROM "projects"
     JOIN "user" ON "user".id = "projects".user_id 
     WHERE "projects".user_id = $1;
     `
-  pool.query(queryText, [id])
+  pool.query(queryText, [req.user.id])
     .then((result) => {
       console.log(result.rows)
       res.send(result.rows);
@@ -38,7 +39,7 @@ router.get('/:id', (req, res) => {
 });
 
 //get details for one project
-router.get('/:id', (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
   let id = req.params.id
   console.log(id)
   const queryText = `
@@ -57,7 +58,7 @@ router.get('/:id', (req, res) => {
 });
 
 
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
   // POST new project with username of who created it
   let project = req.body
   console.log(project)
@@ -74,7 +75,7 @@ router.post('/', (req, res) => {
 });
 
 //delete a project
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
   pool.query(`DELETE FROM "projects" 
               WHERE p_id=$1`, [req.params.id])
     .then((result) => {

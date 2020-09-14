@@ -1,11 +1,14 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 
 
   //get details for one project
-router.get('/:p_id', (req, res) => {
+router.get('/:p_id', rejectUnauthenticated, (req, res) => {
     let id = req.params.p_id
     console.log(id)
     const queryText = `
@@ -26,7 +29,7 @@ router.get('/:p_id', (req, res) => {
 
 
 
-router.put('/', (req, res) => {
+router.put('/', rejectUnauthenticated, (req, res) => {
   let updates = req.body
   console.log(updates)
   const updateQuery= `UPDATE "projects" 

@@ -1,19 +1,20 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
 
 
 //get favorites for one user
-router.get('/:id', (req, res) => {
-    let id = req.params.id
-    console.log(id)
+router.get('/', rejectUnauthenticated, (req, res) => {
     const queryText = `
     SELECT * FROM "favorites"
     JOIN "user" ON "user".id = "favorites".user_id
     JOIN "projects" ON "projects".p_id = "favorites".project_id
     WHERE "favorites".user_id = $1;
     `
-    pool.query(queryText, [id])
+    pool.query(queryText, [req.user.id])
         .then((result) => {
             console.log(result.rows)
             res.send(result.rows);
@@ -25,7 +26,7 @@ router.get('/:id', (req, res) => {
 });
 
 //add a new favorite
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     // POST route code here
     let project = req.body
     console.log(project)
@@ -41,7 +42,7 @@ router.post('/', (req, res) => {
 });
 
 //delete a favorite
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
     pool.query(`DELETE FROM "favorites" 
                 WHERE fav_id=$1`, [req.params.id])
       .then((result) => {

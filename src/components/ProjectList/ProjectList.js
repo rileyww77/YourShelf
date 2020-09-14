@@ -24,7 +24,7 @@ const useStyles = makeStyles({
   media: {
     height: 140,
   },
-  
+
 });
 
 function MediaCard(props) {
@@ -39,40 +39,46 @@ function MediaCard(props) {
     props.dispatch({ type: 'ADD_FAVORITE', payload: favedProject })
   }
 
-const theme = createMuiTheme({
-  typography: {
-    fontFamily: 'Gayathri, sans-serif',
-  }
-})
+  const theme = createMuiTheme({
+    typography: {
+      h4: {
+        fontFamily: 'Dancing Script, cursive',
+      },
+      h6: {
+          fontFamily: 'Patua One, cursive',
+      }
+  }})
+
+
 
   return (
-    // <ThemeProvider theme={theme}>
-    <div >
-      <Card >
-        <CardActionArea onClick={() => { props.history.push(`/details/${props.project.p_id}`) }}>
-          <CardMedia
-            className={classes.media}
-            image={props.project.image}
-            title={props.project.image}
-          />
-          <Divider className="divider"></Divider>
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="h2" className="title">
-              {props.project.name}
-            </Typography>
-            <Typography gutterBottom variant="h5" component="h2" className="user">
-              {props.project.username}
-            </Typography>
-          </CardContent>
-        </CardActionArea>
-        <CardActions>
-          <IconButton onClick={handleClick}>
-            <FavoriteBorderIcon />
-          </IconButton>
-        </CardActions>
-      </Card>
-    </div>
-    // </ThemeProvider>
+    <ThemeProvider theme={theme}>
+      <div >
+        <Card >
+          <CardActionArea onClick={() => { props.history.push(`/details/${props.project.p_id}`) }}>
+            <CardMedia
+              className={classes.media}
+              image={props.project.image}
+              title={props.project.image}
+            />
+            <Divider className="divider"></Divider>
+            <CardContent>
+              <Typography gutterBottom variant="h4" component="h2" className="title">
+                {props.project.name}
+              </Typography>
+              <Typography gutterBottom variant="h6" component="h2" className="user">
+                {props.project.username}
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <CardActions>
+            <IconButton onClick={handleClick}>
+              <FavoriteBorderIcon />
+            </IconButton>
+          </CardActions>
+        </Card>
+      </div>
+    </ThemeProvider>
   );
 }
 

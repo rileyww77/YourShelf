@@ -11,10 +11,9 @@ function* addFavorite(action) {
     }
 }
 
-function* fetchFavorites(action){
+function* fetchFavorites(){
     try {
-        console.log(action.payload)
-        let response = yield axios.get(`/api/favorites/${action.payload}`);
+        let response = yield axios.get(`/api/favorites/`);
         console.log(response.data);
         yield put ({ type: 'PUT_FAVORITES', payload: response.data })
     } catch (error) {
@@ -27,7 +26,7 @@ function* deleteFavorite(action){
     try {
         let response = yield axios.delete(`/api/favorites/${action.payload}`);
         console.log(response.data);
-        yield put({type: 'FETCH_FAVORITES', payload: action.payload })
+        yield put({type: 'FETCH_FAVORITES' })
         fetchFavorites();
     } catch (error) {
         console.log('error deleting favorite (index)', error)

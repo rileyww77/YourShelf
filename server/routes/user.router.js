@@ -45,7 +45,7 @@ router.post('/logout', (req, res) => {
 });
 
 //get user for one project
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
   let id = req.body
   console.log('single', id)
   const queryText = `
