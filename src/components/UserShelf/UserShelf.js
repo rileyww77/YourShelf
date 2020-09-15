@@ -17,6 +17,8 @@ class UserShelf extends Component {
     this.props.dispatch({ type: 'FETCH_FAVORITES', payload: this.props.store.user.id })
   }
 
+  
+
   render() {
     return (
       <>

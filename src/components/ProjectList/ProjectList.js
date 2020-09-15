@@ -5,15 +5,16 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Divider from '@material-ui/core/Divider';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import Icon from "@material-ui/core/Icon";
+import { Button } from "@material-ui/core";
 
+import '../Details/Icon.css'
 import '../card.css';
 
 
@@ -45,9 +46,16 @@ function MediaCard(props) {
         fontFamily: 'Dancing Script, cursive',
       },
       h6: {
-          fontFamily: 'Patua One, cursive',
+        fontFamily: 'Patua One, cursive',
       }
-  }})
+    }
+  })
+
+  const heartIcon = (
+    <Icon>
+      <img alt="painted heart" src="https://cdn4.vectorstock.com/i/thumb-large/10/23/painted-heart-vector-3651023.jpg" />
+    </Icon>
+  )
 
 
 
@@ -72,9 +80,9 @@ function MediaCard(props) {
             </CardContent>
           </CardActionArea>
           <CardActions>
-            <IconButton onClick={handleClick}>
-              <FavoriteBorderIcon />
-            </IconButton>
+            <div>
+              <Button startIcon={heartIcon} onClick={handleClick}></Button>
+            </div>
           </CardActions>
         </Card>
       </div>

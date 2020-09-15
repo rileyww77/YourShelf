@@ -17,30 +17,25 @@ const Nav = (props) => {
   }
 
   return (
-    <div className="nav">
-      {/* Show the link to the info page and the logout button if the user is logged in */}
-      {props.store.user.id && (
-        <div className="userName">
-          <p>Hello, {props.store.user.username}!</p>
-          <Menu></Menu>
-        </ div>
-      )}
-      <div className="center">
-        <Link to="/home">
-          <span>
-          <img src='/images/DIYS-trans.png' alt='YourShelf Logo' className="logo"></img>
-          </span>
-        </Link>
-        <span>
-        <h5 className="inline">Design it: Yourshelf </h5>
-        <h5 className="inline">Decorate it: YourShelf </h5>
-        <h5 className="inline">Do it: YourShelf </h5>
-        </span>
-      </ div>
-      <div className="nav-right">
+    <>
+      <div className="nav">
+        {/* Show the link to the info page and the logout button if the user is logged in */}
+        {props.store.user.id && (
+          <div className="userName">
+            <p>Hello, {props.store.user.username}!</p>
+            <Menu></Menu>
+          </div>
+        )}
+        <div className="logoDiv">
+          <Link to="/home">
+            <img src='/images/DIYS-trans.png' alt='YourShelf Logo' className="logo"></img>
+          </Link>
+        </div>
+        <div className="tagline">
+          <h5>Design it: Yourshelf &nbsp;&nbsp;&nbsp; Decorate it: YourShelf &nbsp;&nbsp; &nbsp;Do it: YourShelf </h5>
+        </div>
       </div>
-      <div className="divider"></div>
-    </div>
+    </>
   );
 };
 

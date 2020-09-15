@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import FavoriteIcon from './FavoriteIcon.js';
+import './Details.css'
 
 
 class Details extends Component {
-  state = {
-    heading: 'details',
-  };
+  
 
   componentDidMount() {
     console.log(this.props.match.params.p_id)
@@ -15,6 +15,10 @@ class Details extends Component {
 
   render() {
     return (
+      <>
+      <div className="favorite">
+      <FavoriteIcon projectId={this.props.match.params.p_id} />
+      </div>
       <div className="center">
         {this.props.store.projectDetails.map((project) => {
           return (
@@ -23,13 +27,14 @@ class Details extends Component {
               <h4>{project.username}</h4>
               <img src={project.image} alt={project.name}></img>
               <h3>Supplies:</h3>
-              <p>{project.supplies}</p>
+              <pre>{project.supplies}</pre>
                 <h3>Steps: </h3>
-              <p>{project.description}</p>
+              <pre>{project.description}</pre>
             </>
           )
         })}
       </div>
+      </>
     );
   }
 }

@@ -45,12 +45,13 @@ router.post('/logout', (req, res) => {
 });
 
 //get user for one project
-router.get('/', rejectUnauthenticated, (req, res) => {
-  let id = req.body
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+  let id = req.params.id
   console.log('single', id)
   const queryText = `
-  SELECT * FROM "user" 
-  WHERE "user".id = $1;
+  SELECT "user".username, "projects".user_id FROM "user" 
+  JOIN "projects" ON "projects".user_id = "user".id
+    WHERE "user".id = $1;
   `
   pool.query(queryText, [id])
     .then((result) => {
