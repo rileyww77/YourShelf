@@ -27,11 +27,15 @@ const Nav = (props) => {
       )}
       <div className="center">
         <Link to="/home">
+          <span>
           <img src='/images/DIYS-trans.png' alt='YourShelf Logo' className="logo"></img>
+          </span>
         </Link>
+        <span>
         <h5 className="inline">Design it: Yourshelf </h5>
         <h5 className="inline">Decorate it: YourShelf </h5>
         <h5 className="inline">Do it: YourShelf </h5>
+        </span>
       </ div>
       <div className="nav-right">
       </div>

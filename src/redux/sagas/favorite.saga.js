@@ -4,16 +4,17 @@ import { put, takeEvery } from 'redux-saga/effects';
 function* addFavorite(action) {
     try {
         console.log(action.payload)
-        let response = yield axios.post(`/api/favorites`, action.payload);
+        let response = yield axios.post(`/api/favorites/addFavorite`, action.payload);
         console.log(response.data);
     } catch (error) {
         console.log('error setting single project (index)', error)
     }
 }
 
-function* fetchFavorites(){
+function* fetchFavorites(action){
     try {
-        let response = yield axios.get(`/api/favorites/`);
+        console.log(action.payload)
+        let response = yield axios.get(`/api/favorites`);
         console.log(response.data);
         yield put ({ type: 'PUT_FAVORITES', payload: response.data })
     } catch (error) {

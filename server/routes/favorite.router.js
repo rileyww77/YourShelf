@@ -26,7 +26,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 });
 
 //add a new favorite
-router.post('/', rejectUnauthenticated, (req, res) => {
+router.post('/addFavorite', rejectUnauthenticated, (req, res) => {
     // POST route code here
     let project = req.body
     console.log(project)

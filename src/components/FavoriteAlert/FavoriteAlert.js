@@ -14,10 +14,14 @@ function AlertDialog(props) {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleCloseDelete = () => {
     setOpen(false);
     console.log(props.favoriteId)
     props.dispatch({ type: 'DELETE_FAVORITE', payload: props.favoriteId})
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -41,7 +45,7 @@ function AlertDialog(props) {
           <Button onClick={handleClose} color="primary">
             No
           </Button>
-          <Button onClick={handleClose} color="primary" autoFocus>
+          <Button onClick={handleCloseDelete} color="primary" autoFocus>
             Yes
           </Button>
         </DialogActions>

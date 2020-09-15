@@ -34,8 +34,8 @@ Button
   border-color: #014041;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #00acb0;
-  color: #f8f8f8;
+  background-color: #f0deb6;
+  color: black;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
@@ -57,7 +57,7 @@ Button
 }
 
 .btn:hover {
-  background-color: #008183;
+  background-color: #f0deb6;
   text-decoration: none;
 }
 
@@ -75,7 +75,7 @@ Button
 .btn_asLink:hover {
   background-color: transparent;
   border-color: #008183;
-  color: #008183;
+  color: #f0deb6;
 }
 
 /* --------------------------------------------------------------------------------
@@ -106,6 +106,7 @@ Form Treatment
   background-color: #efefef;
   border-radius: 3px;
   box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+  margin-top: 40px;
 }
 
 input {
