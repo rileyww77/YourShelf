@@ -92,7 +92,7 @@ function TemporaryDrawer(props) {
         <div>
             {['right'].map((anchor) => (
                 <React.Fragment key={anchor}>
-                    <Button onClick={toggleDrawer(anchor, true)}>Menu</Button>
+                    <Button onClick={toggleDrawer(anchor, true)}>Hello, {props.store.user.username}!</Button>
                     <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
                         {list(anchor)}
                     </Drawer>

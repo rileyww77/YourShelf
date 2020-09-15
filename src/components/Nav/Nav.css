@@ -1,17 +1,7 @@
-
 .logo{
   width: 200px;
   height: 200px;
   margin: 0px;
-  
-}
-
-.logoDiv {
-  align-items: center;
-}
-
-.tagline{
-  order: 1;
 }
 
 h5{
@@ -21,15 +11,5 @@ h5{
 .nav {
   background-color: #cad5c9;
   overflow: hidden;
-  display: flex;
-  flex-direction: row;
   border-bottom: 5px solid #8d9ca5;
-  align-items: center;
 }
-
-
-.userName{
-  align-self: flex-end;
-}
-
-

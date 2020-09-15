@@ -11,8 +11,8 @@ import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Divider from '@material-ui/core/Divider';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import Icon from "@material-ui/core/Icon";
 import { Button } from "@material-ui/core";
+import Avatar from '@material-ui/core/Avatar';
 
 import '../Details/Icon.css'
 import '../card.css';
@@ -51,14 +51,6 @@ function MediaCard(props) {
     }
   })
 
-  const heartIcon = (
-    <Icon>
-      <img alt="painted heart" src="https://cdn4.vectorstock.com/i/thumb-large/10/23/painted-heart-vector-3651023.jpg" />
-    </Icon>
-  )
-
-
-
   return (
     <ThemeProvider theme={theme}>
       <div >
@@ -81,7 +73,7 @@ function MediaCard(props) {
           </CardActionArea>
           <CardActions>
             <div>
-              <Button startIcon={heartIcon} onClick={handleClick}></Button>
+              <Button startIcon={<Avatar alt="painted heart" src="https://cdn4.vectorstock.com/i/thumb-large/10/23/painted-heart-vector-3651023.jpg" />} onClick={handleClick}></Button>
             </div>
           </CardActions>
         </Card>
