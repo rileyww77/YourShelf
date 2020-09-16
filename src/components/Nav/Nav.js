@@ -24,12 +24,11 @@ const Nav = (props) => {
         <Grid item xs={6}>
           <Box>
           <Link to="/home">
-            <img src='/images/DIYS-trans.png' alt='YourShelf Logo' className="logo"></img>
+            <img src='/images/Logo.png' alt='YourShelf Logo' className="logo"></img>
             </Link>
-            <h5>Design it: Yourshelf &nbsp;&nbsp;&nbsp; Decorate it: YourShelf &nbsp;&nbsp; &nbsp;Do it: YourShelf </h5>
           </Box>
         </Grid>
-        <Avatar alt="succelent" src="https://static.vecteezy.com/system/resources/thumbnails/000/184/643/small/Succulents_top_view_hand_drawn_style.jpg" />
+        <Avatar alt="succelent" src="https://image.freepik.com/free-vector/gold-brush-stroke_53876-76976.jpg" />
         {props.store.user.id && (
           <Grid item>
             <Menu></Menu>

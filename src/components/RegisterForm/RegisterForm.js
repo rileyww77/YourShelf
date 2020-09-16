@@ -21,7 +21,7 @@ class RegisterForm extends Component {
       },
     });
     // eslint-disable-next-line
-    {this.props.history.push('/login')};
+    { this.props.history.push('/login') };
   }; // end registerUser
 
   handleInputChangeFor = (propertyName) => (event) => {
@@ -63,9 +63,21 @@ class RegisterForm extends Component {
             />
           </label>
         </div>
+        Profile Pic: 
+        <select name="genres" onChange={this.handleGenre}>
+        <option value='adventure'><img src="https://static.vecteezy.com/system/resources/thumbnails/000/184/643/small/Succulents_top_view_hand_drawn_style.jpg"></img></option>
+          <option value='animated'>Animated</option>
+          <option value='biographical'>Biographical</option>
+          <option value='comedy'>Comedy</option>
+          <option value='disaster'>Disaster</option>
+          <option value='drama'>Drama</option>
+          <option value='epic'>Epic</option>
+          <option value='fantasy'>Fantasy</option>
+        </select>
         <div>
           <input className="btn" type="submit" name="submit" value="Register" />
         </div>
+
       </form>
     );
   }
