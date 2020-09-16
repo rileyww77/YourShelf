@@ -14,6 +14,8 @@ const projectRouter = require('./routes/project.router');
 const detailRouter = require('./routes/details.router');
 const favoriteRouter = require('./routes/favorite.router')
 
+const UploaderS3Router = require('react-dropzone-s3-uploader/s3router')
+
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -30,6 +32,14 @@ app.use('/api/user', userRouter);
 app.use('/api/projects', projectRouter);
 app.use('/api/details', detailRouter);
 app.use('/api/favorites', favoriteRouter)
+
+//image upload
+app.use('/s3', UploaderS3Router ({
+  bucket: 'diybucket',
+  region: 'us-east-2',
+  headers: {'Access-Control-Allow-Origin': '*'},
+  ACL: 'private',
+}));
 
 // Serve static files
 app.use(express.static('build'));

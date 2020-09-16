@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import './NewProject.css'
+import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
 
 
 
@@ -13,6 +14,7 @@ class NewProject extends Component {
     supplies: '',
     description: ''
   };
+
 
   handleNameChange = (event) => {
     this.setState({
@@ -42,12 +44,18 @@ class NewProject extends Component {
 
   handleSubmit = () => {
     console.log('clicked')
-    this.props.dispatch({ type: 'POST_PROJECT', payload: this.state})
+    this.props.dispatch({ type: 'POST_PROJECT', payload: this.state })
     this.props.history.push('/userProject')
   }
 
 
   render() {
+    const uploadOptions = {
+      server: 'http://localhost:5000',
+      // signingUrlQueryParams: { uploadType: 'avatar' },
+    }
+    const s3Url = 'http://diybucket.s3.amazonaws.com';
+
     return (
       <div className="center">
         <div>
@@ -69,6 +77,12 @@ class NewProject extends Component {
         <br />
         <textarea placeholder="Steps" onChange={this.handleStepChange} className="change"></textarea>
         <br />
+        <DropzoneS3Uploader
+          onFinish={this.handleFinishedUpload}
+          s3Url={s3Url}
+          maxSize={1024 * 1024 * 5}
+          upload={uploadOptions}
+        />
         <button onClick={this.handleSubmit}>Submit</button>
       </ div>
     );

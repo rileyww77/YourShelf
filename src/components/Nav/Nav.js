@@ -24,21 +24,27 @@ const Nav = (props) => {
 
   return (
     <div className="nav">
-    <Grid container direction="row" justify="flex-end" alignItems="center" spacing={2}>
+      <Grid container direction="row" justify="flex-end" alignItems="center" spacing={2}>
+        
         <Grid item xs={6}>
           <Box>
-          <Link to="/home">
-            <img src='/images/Logo.png' alt='YourShelf Logo' className="logo"></img>
+            <Link to="/home">
+              <img src='/images/Logo.png' alt='YourShelf Logo' className="logo"></img>
             </Link>
           </Box>
         </Grid>
-        <Avatar alt="user avatar" src={icon} />
+        
         {props.store.user.id && (
-          <Grid item>
-            <Menu></Menu>
-          </Grid>
+          <>
+            <Grid item>
+              <Avatar alt="user avatar" src={icon} />
+              </ Grid>
+              <Grid item>
+              <Menu></Menu>
+            </Grid>
+          </>
         )}
-    </ Grid>
+      </ Grid>
     </div>
   );
 };
