@@ -62,7 +62,7 @@ function DropDown(props) {
           <MenuItem value={"/images/Hammer.png"}><Avatar alt="hammer and wrench" src="/images/Hammer.png" /></MenuItem>
           <MenuItem value={"/images/Paintbrush.jpeg"}><Avatar alt="paintbrush" src="/images/Paintbrush.jpeg" /></MenuItem>
           <MenuItem value={"/images/Rainbow.jpg"}><Avatar alt="rainbow paper" src="/images/Rainbow.jpg" /></MenuItem>
-          <MenuItem value={"/images/Succulent.jpg"}><Avatar alt="succelent" src="/images/Succulent.jpg" /></MenuItem>
+          <MenuItem value={"/images/Succulent.jpg"}><Avatar alt="succulent" src="/images/Succulent.jpg" /></MenuItem>
         </Select>
       </FormControl>
     </div>

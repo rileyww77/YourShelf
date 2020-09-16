@@ -18,6 +18,10 @@ const Nav = (props) => {
     loginLinkData.text = 'Home';
   }
 
+  const icon = props.store.user.icon
+  console.log(icon)
+  console.log(props.store.user)
+
   return (
     <div className="nav">
     <Grid container direction="row" justify="flex-end" alignItems="center" spacing={2}>
@@ -28,7 +32,7 @@ const Nav = (props) => {
             </Link>
           </Box>
         </Grid>
-        <Avatar alt="user avatar" src={props.store.user.icon} />
+        <Avatar alt="user avatar" src={icon} />
         {props.store.user.id && (
           <Grid item>
             <Menu></Menu>
