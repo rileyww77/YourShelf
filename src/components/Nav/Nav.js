@@ -34,7 +34,7 @@ const Nav = (props) => {
           </Box>
         </Grid>
         
-        {props.store.user.id && (
+        {props.store.user.id ? 
           <>
             <Grid item>
               <Avatar alt="user avatar" src={icon} />
@@ -43,7 +43,17 @@ const Nav = (props) => {
               <Menu></Menu>
             </Grid>
           </>
-        )}
+        
+          :
+          <>
+            <Grid item xs={1}>
+              
+              </ Grid>
+              <Grid item>
+              
+            </Grid>
+          </>
+        }
       </ Grid>
     </div>
   );
