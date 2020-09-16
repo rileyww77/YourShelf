@@ -28,7 +28,7 @@ const Nav = (props) => {
             </Link>
           </Box>
         </Grid>
-        <Avatar alt="succelent" src="https://image.freepik.com/free-vector/gold-brush-stroke_53876-76976.jpg" />
+        <Avatar alt="user avatar" src={props.store.user.icon} />
         {props.store.user.id && (
           <Grid item>
             <Menu></Menu>

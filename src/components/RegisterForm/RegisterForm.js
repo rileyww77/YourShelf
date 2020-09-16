@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
-
+import DropDown from './DropDown.js'
 import { withRouter } from 'react-router-dom';
 
 class RegisterForm extends Component {
@@ -18,8 +18,11 @@ class RegisterForm extends Component {
       payload: {
         username: this.state.username,
         password: this.state.password,
+        icon: this.props.store.icon,
       },
     });
+
+    this.props.dispatch({ type: 'PUT_ICON', payload: this.props.store.icon})
     // eslint-disable-next-line
     { this.props.history.push('/login') };
   }; // end registerUser
@@ -64,16 +67,7 @@ class RegisterForm extends Component {
           </label>
         </div>
         Profile Pic: 
-        <select name="genres" onChange={this.handleGenre}>
-        <option value='adventure'><img src="https://static.vecteezy.com/system/resources/thumbnails/000/184/643/small/Succulents_top_view_hand_drawn_style.jpg"></img></option>
-          <option value='animated'>Animated</option>
-          <option value='biographical'>Biographical</option>
-          <option value='comedy'>Comedy</option>
-          <option value='disaster'>Disaster</option>
-          <option value='drama'>Drama</option>
-          <option value='epic'>Epic</option>
-          <option value='fantasy'>Fantasy</option>
-        </select>
+        <DropDown />
         <div>
           <input className="btn" type="submit" name="submit" value="Register" />
         </div>
