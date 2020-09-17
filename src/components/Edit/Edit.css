@@ -7,3 +7,15 @@
     font-family: Arial, Helvetica, sans-serif
 }
 
+.cardBackground{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+    max-width: 50%;
+    padding: 20px;
+    margin: 0 auto 20px;  
+    background-color: #efefef;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+    margin-top: 10px;
+}
