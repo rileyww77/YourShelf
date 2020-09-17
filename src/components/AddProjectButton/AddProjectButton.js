@@ -16,7 +16,7 @@ class AddProjectButton extends Component {
         
         return (
                 <div className="align">
-                        <Button className="button">Add a project!<img alt="user avatar" src={'/images/plus.png'} height="50" onClick={this.handleClick} /></Button>
+                        <Button onClick={this.handleClick} className="button">Add a project!<img alt="user avatar" src={'/images/plus.png'} height="50" /></Button>
                 </div>
         );
     }

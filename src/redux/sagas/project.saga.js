@@ -28,6 +28,7 @@ function* postProject(action){
     try {
         let response = yield axios.post('/api/projects', action.payload)
         console.log(response.data)
+        yield put ({ type: 'FETCH_USER_PROJECTS'})
     } catch (error) {
         console.log('error posting project (index)', error)
     }
