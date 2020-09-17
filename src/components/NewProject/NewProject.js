@@ -6,6 +6,7 @@ import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
 
 
 
+
 class NewProject extends Component {
   state = {
     user_id: '',
@@ -47,7 +48,7 @@ class NewProject extends Component {
     this.props.dispatch({ type: 'POST_PROJECT', payload: this.state })
     this.props.history.push('/userProject')
   };
-  
+
   handleFinishedUpload = info => {
     console.log(info)
     console.log('File uploaded with filename', info.filename)
