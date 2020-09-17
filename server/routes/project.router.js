@@ -88,18 +88,19 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
 
 router.post('/image', rejectUnauthenticated, (req, res) => {
   // POST image url from image upload
-  console.log(req.body);
+  console.log(req.body.imageUrl);
   res.sendStatus(200);
+  const imageUrl = req.body.imageUrl;
   
-//   const queryText = `INSERT INTO "project"`
-//   pool.query(queryText,
-//     [])
-//     .then((result) => {
-//       res.sendStatus(201);
-//     }).catch((error) => {
-//       res.sendStatus(500)
-//       console.log('error posting new image url(router)', error)
-//     })
+  const queryText = `INSERT INTO "project" ("image") VALUES ($1) WHERE "id" = $2`
+  pool.query(queryText,
+    [])
+    .then((result) => {
+      res.sendStatus(201);
+    }).catch((error) => {
+      res.sendStatus(500)
+      console.log('error posting new image url(router)', error)
+    })
 });
 
 module.exports = router;

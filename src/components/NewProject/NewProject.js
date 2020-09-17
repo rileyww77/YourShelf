@@ -55,7 +55,9 @@ class NewProject extends Component {
     console.log('File uploaded with filename', info.filename)
     console.log('Access it on s3 at', info.fileUrl)
 
-    this.props.dispatch({ type: 'POST_IMAGE_URL', payload: info.fileUrl })
+    this.setState({
+      image: info.fileUrl
+    })
   }
 
   render() {
@@ -77,7 +79,12 @@ class NewProject extends Component {
         <br />
         Image URL (show the world your finished product!):
         < br />
-        <input placeholder="Image URL" onChange={this.handleImageChange} className="change"></input>
+        <DropzoneS3Uploader
+          onFinish={this.handleFinishedUpload}
+          s3Url={s3Url}
+          maxSize={1024 * 1024 * 5}
+          upload={uploadOptions}
+        />
         <br />
         Supplies Needed:
         <br />
@@ -87,13 +94,10 @@ class NewProject extends Component {
         <br />
         <textarea placeholder="Steps" onChange={this.handleStepChange} className="change"></textarea>
         <br />
-        <DropzoneS3Uploader
-          onFinish={this.handleFinishedUpload}
-          s3Url={s3Url}
-          maxSize={1024 * 1024 * 5}
-          upload={uploadOptions}
-        />
-        <Button><img src={'/images/submit.jpg'} alt="submit button" height="50" onClick={this.handleSubmit} className="submitButton"></img></Button>
+        
+        {this.state.image ?
+            <Button onClick={this.handleSubmit}><img src={'/images/submit.jpg'} alt="submit button" height="50"  className="submitButton"></img></Button>
+            : <Button disabled><img src={'/images/submit.jpg'} alt="submit button" height="50" className="submitButton"></img></Button>}
       </ div>
     );
   }
