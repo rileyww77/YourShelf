@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import './NewProject.css'
 import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
+import { Button } from "@material-ui/core";
 
 
 
@@ -54,7 +55,7 @@ class NewProject extends Component {
     console.log('File uploaded with filename', info.filename)
     console.log('Access it on s3 at', info.fileUrl)
 
-    this.props.dispatch({ type: 'POST_IMAGE_URL', payload: info.fileUrl})
+    this.props.dispatch({ type: 'POST_IMAGE_URL', payload: info.fileUrl })
   }
 
   render() {
@@ -66,7 +67,7 @@ class NewProject extends Component {
     const s3Url = 'http://diybucket.s3.amazonaws.com';
 
     return (
-      <div className="center">
+      <div className="NewProject">
         <div>
           <h2>Add a new Project!</h2>
         </div>
@@ -92,7 +93,7 @@ class NewProject extends Component {
           maxSize={1024 * 1024 * 5}
           upload={uploadOptions}
         />
-        <button onClick={this.handleSubmit}>Submit</button>
+        <Button><img src={'/images/submit.jpg'} alt="submit button" height="50" onClick={this.handleSubmit} className="submitButton"></img></Button>
       </ div>
     );
   }

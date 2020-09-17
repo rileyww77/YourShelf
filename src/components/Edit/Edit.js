@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
+import { Button } from "@material-ui/core";
 
 import './Edit.css'
 
@@ -55,7 +56,7 @@ class Edit extends Component {
             <br />
           <textarea value={this.props.store.edit.description} onChange={this.handleStepChange} className="change"></textarea>
             <br />
-          <button onClick={this.handleSubmit}>Submit</button>
+            <Button><img src={'/images/submit.jpg'} alt="submit button" height="50" onClick={this.handleSubmit} className="submitButton"></img></Button>
         </div>
       </>
     )

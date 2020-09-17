@@ -23,8 +23,8 @@ class Details extends Component {
         {this.props.store.projectDetails.map((project) => {
           return (
             <>
-              <h2 key={project.name}>{project.name}</h2>
-              <h4>{project.username}</h4>
+              <h2 key={project.name} className="back">{project.name}</h2>
+              <h4 className="back">{project.username}</h4>
               <img src={project.image} alt={project.name}></img>
               <h3>Supplies:</h3>
               <pre>{project.supplies}</pre>

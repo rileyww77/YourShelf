@@ -14,6 +14,7 @@ import { withRouter } from 'react-router-dom';
 
 
 
+
 const useStyles = makeStyles({
     root: {
         maxWidth: 345,
@@ -63,6 +64,7 @@ function MediaCard(props) {
                 <Button onClick={() => { props.history.push(`/edit/${props.project.p_id}`) }} size="small" color="primary">
                     Edit
         </Button>
+        
                 <AlertButton projectId={props.project.p_id}/>
             </CardActions>
         </Card>
