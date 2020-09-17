@@ -5,7 +5,12 @@ import './NewProject.css'
 import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
 import { Button } from "@material-ui/core";
 
-
+const dropStyles = {
+  
+  border: "1px solid black",
+  "background-color": "white",
+  
+}
 
 
 class NewProject extends Component {
@@ -68,6 +73,12 @@ class NewProject extends Component {
     }
     const s3Url = 'http://diybucket.s3.amazonaws.com';
 
+    const innerElement = (
+      <div>
+        <p className="innerElement">Click or Drop Files Here!</p>
+      </div>
+    )
+
     return (
       <div className="NewProject">
         <div>
@@ -80,8 +91,10 @@ class NewProject extends Component {
         Image URL (show the world your finished product!):
         < br />
         <DropzoneS3Uploader
+        children={innerElement}
           onFinish={this.handleFinishedUpload}
           s3Url={s3Url}
+          style={dropStyles}
           maxSize={1024 * 1024 * 5}
           upload={uploadOptions}
         />
