@@ -60,9 +60,9 @@ class App extends Component {
           <Switch>
             
             
-            <Route path="/details/:p_id" component={Details}/>
-            <Route exact path="/edit/:p_id" component={Edit}/>
-            <Route exact path="/newProject" component={NewProject} />
+            <ProtectedRoute path="/details/:p_id" component={Details}/>
+            <ProtectedRoute exact path="/edit/:p_id" component={Edit}/>
+            <ProtectedRoute exact path="/newProject" component={NewProject} />
             <Route exact path="/" component={LandingPage} />
             <ProtectedRoute exact path="/home" component={Home} />
 

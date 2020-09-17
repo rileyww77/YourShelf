@@ -38,7 +38,6 @@ class Edit extends Component {
   render() {
     return (
       <>
-        <h2>Edit</h2>
         <div className="center">
           Project Name:
             <br />

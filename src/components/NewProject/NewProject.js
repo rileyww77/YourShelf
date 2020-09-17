@@ -46,10 +46,18 @@ class NewProject extends Component {
     console.log('clicked')
     this.props.dispatch({ type: 'POST_PROJECT', payload: this.state })
     this.props.history.push('/userProject')
+  };
+  
+  handleFinishedUpload = info => {
+    console.log(info)
+    console.log('File uploaded with filename', info.filename)
+    console.log('Access it on s3 at', info.fileUrl)
+
+    this.props.dispatch({ type: 'POST_IMAGE_URL', payload: info.fileUrl})
   }
 
-
   render() {
+
     const uploadOptions = {
       server: 'http://localhost:5000',
       // signingUrlQueryParams: { uploadType: 'avatar' },

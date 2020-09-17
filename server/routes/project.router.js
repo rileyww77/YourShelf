@@ -65,7 +65,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   const queryText = `INSERT INTO "projects" ("user_id", "name", "image", "supplies", "description")
   VALUES ($1, $2, $3, $4, $5)`
   pool.query(queryText,
-    [project.user_id, project.name, project.image, project.supplies, project.description])
+    [req.user.id, project.name, project.image, project.supplies, project.description])
     .then((result) => {
       res.sendStatus(201);
     }).catch((error) => {
@@ -85,5 +85,21 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
       res.sendStatus(500)
     })
 })
+
+router.post('/image', rejectUnauthenticated, (req, res) => {
+  // POST image url from image upload
+  console.log(req.body);
+  res.sendStatus(200);
+  
+//   const queryText = `INSERT INTO "project"`
+//   pool.query(queryText,
+//     [])
+//     .then((result) => {
+//       res.sendStatus(201);
+//     }).catch((error) => {
+//       res.sendStatus(500)
+//       console.log('error posting new image url(router)', error)
+//     })
+});
 
 module.exports = router;

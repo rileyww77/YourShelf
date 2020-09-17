@@ -25,7 +25,6 @@ const Nav = (props) => {
   return (
     <div className="nav">
       <Grid container direction="row" justify="flex-end" alignItems="center" spacing={2}>
-        
         <Grid item xs={6}>
           <Box>
             <Link to="/home">
@@ -33,7 +32,6 @@ const Nav = (props) => {
             </Link>
           </Box>
         </Grid>
-        
         {props.store.user.id ? 
           <>
             <Grid item>
@@ -43,18 +41,15 @@ const Nav = (props) => {
               <Menu></Menu>
             </Grid>
           </>
-        
           :
           <>
             <Grid item xs={1}>
-              
               </ Grid>
               <Grid item>
-              
             </Grid>
           </>
         }
-      </ Grid>
+      </Grid>
     </div>
   );
 };

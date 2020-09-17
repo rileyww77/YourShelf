@@ -26,15 +26,9 @@ const useStyles = makeStyles({
 });
 
 
-
 function MediaCard(props) {
     const classes = useStyles();
 
-    // const getUser = () => {
-    //     props.dispatch ({ type: 'GET_USER', payload: props.project.user_id })
-    // }
-
-    // getUser();
 
     return (
         <div>
@@ -50,18 +44,9 @@ function MediaCard(props) {
                     <Typography gutterBottom variant="h5" component="h2">
                         {props.project.name}
                     </Typography>
-                    
-                    {props.store.singleUser.map((user) => {
-                        return(
                             <Typography gutterBottom variant="h5" component="h2">
-                            {user.username}
+                            {props.project.username}
                             </Typography>
-                        )
-                        })}
-                    
-                    {/* {props.project.user_id === props.store.singleUser.user_id && 
-                    
-                    } */}
                 </CardContent>
             </CardActionArea>
             <CardActions>

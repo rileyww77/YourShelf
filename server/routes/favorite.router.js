@@ -10,8 +10,8 @@ const {
 router.get('/', rejectUnauthenticated, (req, res) => {
     const queryText = `
     SELECT * FROM "favorites"
-    JOIN "user" ON "user".id = "favorites".user_id
     JOIN "projects" ON "projects".p_id = "favorites".project_id
+    JOIN "user" ON "user".id = "projects".user_id
     WHERE "favorites".user_id = $1;
     `
     pool.query(queryText, [req.user.id])

@@ -38,7 +38,7 @@ app.use('/s3', UploaderS3Router ({
   bucket: 'diybucket',
   region: 'us-east-2',
   headers: {'Access-Control-Allow-Origin': '*'},
-  ACL: 'private',
+  ACL: 'public-read',
 }));
 
 // Serve static files
