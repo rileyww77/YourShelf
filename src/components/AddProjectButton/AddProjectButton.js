@@ -2,9 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
-
 import './Button.css'
-
 
 class AddProjectButton extends Component {
 
