@@ -54,65 +54,84 @@ class App extends Component {
     });
     return (
       <theme>
-      <Router>
-        <div>
-          <Nav />
-          <Switch>
-            
-            
-            <ProtectedRoute path="/details/:p_id" component={Details}/>
-            <ProtectedRoute exact path="/edit/:p_id" component={Edit}/>
-            <ProtectedRoute exact path="/newProject" component={NewProject} />
-            <Route exact path="/" component={LandingPage} />
-            <ProtectedRoute exact path="/home" component={Home} />
+        <Router>
+          <div>
+            <Nav />
+            <Switch>
+              
+              
+              <Route 
+              //this is the first page the user will see. It is not protected
+              exact path="/" 
+              component={LandingPage} 
+              />
 
-            {/* For protected routes, the view could show one of several things on the same route.
-            Visiting localhost:3000/user will show the UserPage if the user is logged in.
-            If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
-            Even though it seems like they are different pages, the user is always on localhost:3000/user */}
-            <ProtectedRoute
-              // logged in shows UserPage else shows LoginPage
-              exact
-              path="/user"
-              component={UserShelf}
-            />
+              <ProtectedRoute 
+              //if logged in, shows the details page for a specific project
+              path="/details/:p_id" 
+              component={Details} 
+              />
 
-            <ProtectedRoute
-              // logged in shows InfoPage else shows LoginPage
-              exact
-              path="/userProject"
-              component={CreatedProjects}
-            />
+              <ProtectedRoute 
+              //if logged in, shows the edit form for a specific projet
+              exact path="/edit/:p_id" 
+              component={Edit} 
+              />
 
-            {/* When a value is supplied for the authRedirect prop the user will
-            be redirected to the path supplied when logged in, otherwise they will
-            be taken to the component and path supplied. */}
-            <ProtectedRoute
-              // with authRedirect:
-              // - if logged in, redirects to "/user"
-              // - else shows LoginPage at /login
-              exact
-              path="/login"
-              component={LoginPage}
-              authRedirect="/home"
-            />
-            <ProtectedRoute
-              // with authRedirect:
-              // - if logged in, redirects to "/user"
-              // - else shows RegisterPage at "/registration"
-              exact
-              path="/registration"
-              component={RegisterPage}
-              authRedirect="/home"
-            />
-            
+              <ProtectedRoute 
+              //if logged in shows creating a new project form
+              exact path="/newProject" 
+              component={NewProject} 
+              />
 
-            {/* If none of the other routes matched, we will show a 404. */}
-            <Route render={() => <h1>404</h1>} />
-          </Switch>
-          <Footer />
-        </div>
-      </Router>
+
+              <ProtectedRoute
+                //logged in users shows home page
+                exact path="/home"
+                component={Home}
+              />
+
+
+              <ProtectedRoute
+                // logged in shows users favorited projects
+                exact
+                path="/user"
+                component={UserShelf}
+              />
+
+              <ProtectedRoute
+                // logged in shows users created projects
+                exact
+                path="/userProject"
+                component={CreatedProjects}
+              />
+
+              <ProtectedRoute
+                // with authRedirect:
+                // - if logged in, redirects to "/home"
+                // - else shows LoginPage at /login
+                exact
+                path="/login"
+                component={LoginPage}
+                authRedirect="/home"
+              />
+              <ProtectedRoute
+                // with authRedirect:
+                // - if logged in, redirects to "/home"
+                // - else shows RegisterPage at "/registration"
+                exact
+                path="/registration"
+                component={RegisterPage}
+                authRedirect="/home"
+              />
+
+
+              {/* If none of the other routes matched, we will show a 404. */}
+              <Route render={() => <h1>404</h1>} />
+            </Switch>
+            <Footer />
+          </div>
+        </Router>
       </theme>
     );
   }
