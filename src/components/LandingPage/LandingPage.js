@@ -26,7 +26,7 @@ class LandingPage extends Component {
               share, and view projects with millions across the globe! Get excited to do it YourShelf!
             </p>
           </div>
-          <div className="grid-col grid-col_4">
+          <div className="loginBox">
             <LoginPage />
           </div>
         </div>
