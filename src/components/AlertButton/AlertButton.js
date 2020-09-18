@@ -20,6 +20,10 @@ function AlertDialog(props) {
     props.dispatch({ type: 'DELETE_PROJECT', payload: props.projectId})
   };
 
+  const handleCloseNo = () => {
+    setOpen(false);
+  };
+
   return (
     <div>
       <Button variant="outlined" color="primary" onClick={handleClickOpen}>
@@ -38,7 +42,7 @@ function AlertDialog(props) {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+          <Button onClick={handleCloseNo} color="primary">
             No
           </Button>
           <Button onClick={handleClose} color="primary" autoFocus>

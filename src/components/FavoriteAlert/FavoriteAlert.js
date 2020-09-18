@@ -17,7 +17,7 @@ function AlertDialog(props) {
   const handleCloseDelete = () => {
     setOpen(false);
     console.log(props.favoriteId)
-    props.dispatch({ type: 'DELETE_FAVORITE', payload: props.favoriteId})
+    props.dispatch({ type: 'DELETE_FAVORITE', payload: props.favoriteId })
   };
 
   const handleClose = () => {
@@ -38,7 +38,7 @@ function AlertDialog(props) {
         <DialogTitle id="alert-dialog-title">{"Delete?"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Are you sure you want to delete this project?
+            Are you sure you want to delete this favorite?
           </DialogContentText>
         </DialogContent>
         <DialogActions>
