@@ -6,12 +6,9 @@ import DropzoneS3Uploader from 'react-dropzone-s3-uploader';
 import { Button } from "@material-ui/core";
 
 const dropStyles = {
-  
   border: "1px solid black",
   "background-color": "white",
-  
 }
-
 
 class NewProject extends Component {
   state = {
@@ -21,7 +18,6 @@ class NewProject extends Component {
     supplies: '',
     description: ''
   };
-
 
   handleNameChange = (event) => {
     this.setState({

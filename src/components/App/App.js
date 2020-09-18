@@ -21,12 +21,14 @@ import NewProject from '../NewProject/NewProject.js'
 import Home from '../Home/Home.js'
 import Details from '../Details/Details.js'
 import Edit from '../Edit/Edit.js'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
 import './App.css';
 import CreatedProjects from '../CreatedProjects/CreatedProjects';
 
 
 class App extends Component {
+
 
   
 
@@ -36,7 +38,19 @@ class App extends Component {
 
   render() {
 
+    const theme = createMuiTheme({
+      typography: {
+        h4: {
+          fontFamily: 'Dancing Script, cursive',
+        },
+        h6: {
+          fontFamily: 'Patua One, cursive',
+        }
+      }
+    })
+
     return (
+      <ThemeProvider theme={theme}>
         <Router>
           <div>
             <Nav />
@@ -114,6 +128,7 @@ class App extends Component {
             <Footer />
           </div>
         </Router>
+        </ThemeProvider>
     );
   }
 }
