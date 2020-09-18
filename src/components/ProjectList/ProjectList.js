@@ -11,12 +11,18 @@ import { withRouter } from 'react-router-dom';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import Divider from '@material-ui/core/Divider';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { Button } from "@material-ui/core";
-import Avatar from '@material-ui/core/Avatar';
+// import { Button } from "@material-ui/core";
+// import Avatar from '@material-ui/core/Avatar';
+// import { NotificationContainer, NotificationManager } from 'react-notifications';
 
 import '../Details/Icon.css'
 import '../card.css';
+import ProjectSnackbar from './ProjectSnackbar.js'
 
+// const createNotification = () => {
+//   console.log('clicked');
+//   NotificationManager.success('Added to your Shelf!');
+// }
 
 const useStyles = makeStyles({
   root: {
@@ -25,20 +31,24 @@ const useStyles = makeStyles({
   media: {
     height: 140,
   },
+  card: {
+    maxHeight: 370
+  }
 
 });
 
 function MediaCard(props) {
   const classes = useStyles();
 
-  const favedProject = {
-    user_id: props.store.user.id,
-    project_id: props.project.p_id
-  }
+  // const favedProject = {
+  //   user_id: props.store.user.id,
+  //   project_id: props.project.p_id
+  // }
 
-  const handleClick = () => {
-    props.dispatch({ type: 'ADD_FAVORITE', payload: favedProject })
-  }
+  // const handleClick = () => {
+  //   props.dispatch({ type: 'ADD_FAVORITE', payload: favedProject })
+  //   createNotification();
+  // }
 
   const theme = createMuiTheme({
     typography: {
@@ -54,7 +64,7 @@ function MediaCard(props) {
   return (
     <ThemeProvider theme={theme}>
       <div >
-        <Card >
+        <Card className={classes.card}>
           <CardActionArea onClick={() => { props.history.push(`/details/${props.project.p_id}`) }}>
             <CardMedia
               className={classes.media}
@@ -73,7 +83,9 @@ function MediaCard(props) {
           </CardActionArea>
           <CardActions>
             <div>
-              <Button startIcon={<Avatar alt="geometric heart" src="https://cdn.impactinit.com/cdn/x/x@3a7cc664c4/smss52/smsimg30/pv/isignstockcontributors/iss_20768_00617.jpg" />} onClick={handleClick}></Button>
+              <ProjectSnackbar project={props.project}/>
+              {/* <Button startIcon={<Avatar alt="geometric heart" src="https://cdn.impactinit.com/cdn/x/x@3a7cc664c4/smss52/smsimg30/pv/isignstockcontributors/iss_20768_00617.jpg" />} onClick={handleClick}></Button>
+              <NotificationContainer className="noteBack"/> */}
             </div>
           </CardActions>
         </Card>

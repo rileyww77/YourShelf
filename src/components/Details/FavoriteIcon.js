@@ -5,11 +5,15 @@ import mapStoreToProps from '../../redux/mapStoreToProps';
 import { Button } from "@material-ui/core";
 import './Icon.css'
 import Avatar from '@material-ui/core/Avatar';
+import { NotificationContainer, NotificationManager } from 'react-notifications';
 
-
+const createNotification = () => {
+    console.log('clicked');
+    NotificationManager.success('Added to your Shelf!');
+}
 
 function FavoriteIcon(props) {
-   
+
     const favedProject = {
         user_id: props.store.user.id,
         project_id: props.projectId
@@ -17,14 +21,15 @@ function FavoriteIcon(props) {
 
 
     const handleClick = () => {
-        props.dispatch({ type: 'ADD_FAVORITE', payload: favedProject })
+        props.dispatch({ type: 'ADD_FAVORITE', payload: favedProject });
+        createNotification();
     }
 
     return (
         <div>
-            <Button startIcon={<Avatar alt="painted heart" src="https://cdn.impactinit.com/cdn/x/x@3a7cc664c4/smss52/smsimg30/pv/isignstockcontributors/iss_20768_00617.jpg" />} onClick={handleClick}></Button>
+            <Button className="success" startIcon={<Avatar alt="painted heart" src="https://cdn.impactinit.com/cdn/x/x@3a7cc664c4/smss52/smsimg30/pv/isignstockcontributors/iss_20768_00617.jpg" />} onClick={handleClick} ></Button>
+            <NotificationContainer />
         </div>
-
     );
 }
 

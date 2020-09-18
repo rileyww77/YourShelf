@@ -7,11 +7,12 @@ import './Details.css'
 
 class Details extends Component {
 
-
   componentDidMount() {
     console.log(this.props.match.params.p_id)
     this.props.dispatch({ type: 'FETCH_DETAILS', payload: this.props.match.params.p_id })
   }
+
+  
 
   render() {
     return (
@@ -22,7 +23,7 @@ class Details extends Component {
               <>
                 <div className="background">
                   <div className="favorite">
-                    <FavoriteIcon projectId={this.props.match.params.p_id} className="favorite" />
+                    <FavoriteIcon projectId={this.props.match.params.p_id} className="favorite"/>
                   </div>
                   <h2 key={project.name} className="back">{project.name}</h2>
                   <h4 className="back">{project.username}</h4>
