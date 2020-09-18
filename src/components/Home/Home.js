@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import mapStoreToProps from '../../redux/mapStoreToProps';
 import ProjectList from '../ProjectList/ProjectList.js';
-import UserPage from '../UserPage/UserPage.js'
+
 
 import '../card.css'
 
@@ -20,7 +20,6 @@ class Home extends Component {
   render() {
     return (
       <>
-        <UserPage />
         <div className="card">
           {this.props.store.projects.map((project) => {
             return (
