@@ -2,14 +2,10 @@
 ![Home Page](documentation/images/home-page.png)
 
 
-## Installation
 
-npm install 
+## Description
 
-
-## Usage
-
-This app waw created as a place for DIYers to share and see projects others have made. Users can create an account and login, and see all projects that have been created in the app. Users can click on a project to see more details about it. If they like the project, they are able to favorite it, and save it in their "shelf" to view later. Users can also create their own projects, and edit/delete those as well. This application is a full-stack full CRUD development.
+This application was created as a place for DIYers to share and see projects others have made. Users can create an account and login, and see all projects that have been created in the app. Users can click on a project to see more details about it. If they like the project, they are able to favorite it, and save it in their "shelf" to view later. Users can also create their own projects, and edit/delete those as well. This application is a full-stack full CRUD development.
 
 
 # Prerequisites
